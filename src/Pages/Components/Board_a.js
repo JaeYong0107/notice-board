@@ -1,18 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router";
 
-const Board = () => {
+const Board_a = () => {
 
     const navigete = useNavigate();
     const toWrite = () => {
         navigete('/writeBoard');
     }
-
-
-
-
-
-
 
     return (
         <div className="Board">
@@ -20,14 +14,14 @@ const Board = () => {
             <div className="Board-content">
                 <div className="Board-article">
                     <div style={{ width: 50 + 'vw', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-                        <h4 style={{ margin: 0, padding: 1 + '%' }}>첫 번째 타이틀</h4>
+                        <h4 style={{ margin: 0, padding: 1 + '%' }}>두 번째 타이틀</h4>
                         <p style={{ margin: 0, padding: 1 + '%' }}> dasdsajdksajdsalkdjasldjsaldjsaldsajdlsajdlskajdsakdjasldjsalkdjsalkdjsadsakl </p>
                     </div>
                     <img />
                 </div>
             </div>
-        </div >
+        </div>
     )
 }
 
-export default Board;
+export default Board_a;
