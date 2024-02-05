@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+
 const WriteBoard = () => {
 
     const SERVER_URL = 'http://localhost:4000/api/board';
@@ -12,7 +13,7 @@ const WriteBoard = () => {
     };
 
     const fetchData = async () => {
-        const response = await axios(SERVER_URL);
+        const response = await axios.get(SERVER_URL);
         setBoard(response.data);
     }
 
@@ -25,7 +26,7 @@ const WriteBoard = () => {
         const category = e.target.category.value;
         const title = e.target.title.value;
         const text = e.target.text.value;
-        axios.post(SERVER_URL, { category, title, text });
+        await axios.post(SERVER_URL, { category, title, text });
         fetchData();
     };
 
@@ -36,7 +37,7 @@ const WriteBoard = () => {
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
                     <div style={{ display: 'flex' }}>
                         <label style={{ width: 5 + 'vw', margin: 10 }}>카테고리</label>
-                        <select name='category' onClick={handleSelect} value={Selected} style={{ width: 5 + 'vw' }}>
+                        <select name='category' onChange={handleSelect} value={Selected} style={{ width: 5 + 'vw' }}>
                             {selectList.map((item) => (
                                 <option value={item} key={item}>
                                     {item}
